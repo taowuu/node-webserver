@@ -36,3 +36,7 @@ select * from users where state<>'0';
 update users set state='0' where username='tao2';
 -- 
 insert into blogs(title, content, createtime, author) values('title1', 'content1', 1662879211525, 'tao1')
+-- 
+use mysql;
+select user,host from user;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
