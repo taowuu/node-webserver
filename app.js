@@ -1,3 +1,4 @@
+const querystring = require('querystring')
 const handleBlogRouter = require('./src/router/blog')
 const handleUserRouter = require('./src/router/user')
 // 
@@ -6,6 +7,7 @@ const serverHandle = (req, res) => {
     // 
     const url = req.url
     req.path = url.split('?')[0]
+    req.query = querystring.parse(req.path)
     // 
     const blogData = handleBlogRouter(req, res)
     if(blogData) {
