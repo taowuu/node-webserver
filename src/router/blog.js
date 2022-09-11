@@ -59,4 +59,6 @@ const handleBlogRouter = (req, res) => {
     }
 }
 // 
-module.exports = handleBlogRouter
+module.exports = {
+    handleBlogRouter,
+}
