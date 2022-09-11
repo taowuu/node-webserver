@@ -2,6 +2,7 @@ const { getList,
         getDetail, 
         newBlog,
         updateBlog,
+        delBlog,
     } = require('../controller/blog')
 const {SuccessModel, ErrorModel} = require('../model/resModel')
 // 
@@ -35,10 +36,13 @@ const handleBlogRouter = (req, res) => {
             return new ErrorModel('update err')
         }
     }
-    // 
+    // del
     if(method === 'POST' && req.path === '/api/blog/del') {
-        return {
-            msg: 'del blog api'
+        const result = delBlog(id)
+        if(result) {
+            return new SuccessModel()
+        } else {
+            return new ErrorModel('del err')
         }
     }
 }
