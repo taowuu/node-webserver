@@ -14,15 +14,20 @@ CREATE TABLE `myblog`.`blogs` (
   `createtime` BIGINT(20) NOT NULL DEFAULT 0,
   `author` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`));
--- 
+-- 业界删除方法
 ALTER TABLE `myblog`.`users` 
 ADD COLUMN `state` INT NOT NULL DEFAULT 1 AFTER `realname`;
-
 -- test
 use myblog;
 show tables;
-insert into users(username, `password`, realname) values('tao2', '123', 'tao2')
+insert into users(username, `password`, realname) values('tao1', '123', 'tao1');
+insert into users(username, `password`, realname) values('tao2', '123', 'tao2');
+insert into blogs(title, content, createtime, author) values('t100', 'c100', 1662879211525, 'tao1');
+insert into blogs(title, content, createtime, author) values('t200', 'c200', 1662879211525, 'tao2');
+
 select * from users;
+select * from blogs;
+
 select id, username from users;
 select * from users where username='tao1' and `password`='123';
 select * from users where username like '%tao%';
@@ -35,7 +40,7 @@ select * from users where state='1';
 select * from users where state<>'0';
 update users set state='0' where username='tao2';
 -- 
-insert into blogs(title, content, createtime, author) values('title1', 'content1', 1662879211525, 'tao1')
+
 -- 
 -- mysql8 修改认证为普通模式
 use mysql;

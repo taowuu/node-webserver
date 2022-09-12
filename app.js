@@ -88,7 +88,7 @@ const serverHandle = (req, res) => {
             // 设置 session
             req.session = sessionData
         }
-        console.log('req.session', req.session)
+        console.log('app.js req.session', req.session)
         // 处理 post data
         return getPostData(req)
     })

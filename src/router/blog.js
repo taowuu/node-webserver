@@ -12,7 +12,6 @@ const loginCheck = (req) => {
         return Promise.resolve(new ErrorModel('please login'))
     }
 }
-
 // 
 const handleBlogRouter = (req, res) => {
     const method = req.method
