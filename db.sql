@@ -34,7 +34,7 @@ select * from users where username like '%tao%';
 select * from users where username like '%tao%' order by id desc;
 -- 关闭安全模式
 SET SQL_SAFE_UPDATES=0;
-update users set realname='taotao' where username='tao2';
+update users set password='524ab85686df0e52ada43b11b53cce35' where username='tao1';
 delete from users where username='tao2';
 select * from users where state='1';
 select * from users where state<>'0';

@@ -1,3 +1,4 @@
+const xss = require('xss')
 const { exec } = require('../db/mysql')
 // 
 const getList = (author, keyword) => {
@@ -21,7 +22,9 @@ const getDetail = (id) => {
 // 
 const newBlog = (blogData = {}) => {
     // console.log('new blogdata', blogData)
-    title = blogData.title
+    title = xss(blogData.title)
+    // console.log('ctl title', title)
+    // ctl title &lt;script&gt;alert(1)&lt;script&gt;
     content = blogData.content
     author = blogData.author
     createTime = Date.now()
